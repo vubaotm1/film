@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTPS} !=on [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+RewriteEngine on
+RewriteRule ^index.php$   vhn_home.php
+RewriteRule ^tim-kiem$   search.php
+RewriteRule ^tim-kiem/$   search.php
+RewriteRule ^Info/([^/]+)(/([^/]+))?$ Info.php?url_phim=$1 [L]
+RewriteRule ^Xem/([^/]+)(/([^/]+))?$ Xem.php?url_phim=$1&tap=$3 [L]
